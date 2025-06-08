@@ -18,6 +18,7 @@
           "builder": "@angular/build:application",
           "options": {
             "outputPath": "dist/angular-polytech-td5",
+            "baseHref": "/angular-polytech-td5/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [

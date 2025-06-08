@@ -7,3 +7,62 @@ $primary: #0058A3;
 $secondary: #2C377E;
 $accent: #E62B27;
 $white: #FFFFFF;
+
+// Global styles
+* {
+  box-sizing: border-box;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.container {
+  flex: 1;
+  overflow-y: auto;
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+// Error message style
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+// Loading spinner styles
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+// No data message style
+.no-data {
+  text-align: center;
+  padding: 20px;
+  color: #757575;
+  font-style: italic;
+}

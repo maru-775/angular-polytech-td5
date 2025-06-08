@@ -1,1 +1,18 @@
 <!-- Affichage de la liste des vols -->
+<div class="liste-vols-container">
+  <h2>Liste des vols</h2>
+  <div class="vols-count" *ngIf="vols.length > 0">
+    {{ vols.length }} vol(s) trouvé(s)
+  </div>
+  <div class="message-vide" *ngIf="vols.length === 0">
+    Aucun vol trouvé. Veuillez sélectionner un aéroport et une période.
+  </div>
+  <div class="vols-list">
+    <app-vol *ngFor="let vol of vols"
+             [vol]="vol"
+             [type]="type"
+             [actif]="vol === volActif"
+             (volSelectionne)="onSelectVol($event)">
+    </app-vol>
+  </div>
+</div>

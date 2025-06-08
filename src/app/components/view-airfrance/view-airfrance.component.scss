@@ -1,51 +1,62 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 100%;
   height: 100%;
+  padding: 20px;
 
   .title {
-    height: 8%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    margin-left: 15px;
+    text-align: center;
+    margin-bottom: 20px;
 
     h1 {
-      margin: 0px;
-      font-weight: bold;
+      font-size: 28px;
+      color: #3f51b5;
+      margin: 0;
     }
   }
 
   .sections {
     display: flex;
-    justify-content: space-evenly;
-    height: 92%;
-    width: 100%;
+    flex: 1;
+    gap: 20px;
+    height: calc(100vh - 150px);
 
     .left {
-      width: 48%;
-      height: 100%;
+      display: flex;
+      flex-direction: column;
+      flex: 3;
 
       .top {
-        width: 100%;
-        height: 20%;
-        overflow: auto;
+        margin-bottom: 20px;
       }
 
       .bottom {
-        width: 100%;
-        height: 80%;
-        overflow: auto;
+        flex: 1;
+        overflow: hidden;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       }
     }
 
     .right {
-      width: 48%;
-      height: 100%;
-      overflow: auto;
+      flex: 2;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
     }
   }
+}
 
+// Responsive design
+@media (max-width: 1024px) {
+  .sections {
+    flex-direction: column;
+
+    .left,
+    .right {
+      width: 100%;
+    }
+  }
 }

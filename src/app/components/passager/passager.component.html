@@ -1,1 +1,37 @@
-<!-- Affichage d'un passager -->
+<div class="passager-card" [ngClass]="getClasseStyle()">
+  <div class="passager-image" *ngIf="showPhotos">
+    <img [src]="passager.image" alt="Photo du passager" />
+  </div>  <div class="passager-info">
+    <div class="nom" [matTooltip]="passager.email" matTooltipPosition="right">{{ passager.nom }}</div>
+    <div class="classe-container">
+      <div *ngIf="!editMode" class="classe" [appClasseVol]="passager.classeVol">
+        <span class="classe-label">Classe:</span> {{ passager.classeVol }}
+      </div>
+      <mat-form-field *ngIf="editMode" appearance="outline" class="classe-select">
+        <mat-label>Classe</mat-label>
+        <mat-select [(ngModel)]="passager.classeVol">
+          <mat-option *ngFor="let option of classeVolOptions" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="bagages" 
+         [appBagageValidation]="{classe: passager.classeVol, bagages: passager.nbBagagesSoute}"
+         [matTooltip]="getLimiteBagageInfo()"
+         matTooltipPosition="above">
+      <span *ngIf="editMode" class="bagage-edit">
+        <mat-form-field appearance="outline" class="bagage-input">
+          <mat-label>Bagages</mat-label>
+          <input matInput type="number" min="0" max="10" [(ngModel)]="passager.nbBagagesSoute">
+        </mat-form-field>
+      </span>
+      <span *ngIf="!editMode && passager.nbBagagesSoute > 0" class="bagage-container">
+        <mat-icon matBadge="{{ passager.nbBagagesSoute }}" [matBadgeColor]="isBagageValid() ? 'accent' : 'warn'">luggage</mat-icon>
+      </span>
+      <span *ngIf="!editMode && passager.nbBagagesSoute === 0" class="bagage-container">
+        <mat-icon>luggage_off</mat-icon>
+      </span>
+    </div>
+  </div>
+</div>

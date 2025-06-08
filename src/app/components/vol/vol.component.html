@@ -1,1 +1,27 @@
-<!-- Affichage d'un vol -->
+<div class="vol-card" [class.active]="actif" (click)="selectionnerVol()">
+  <div class="vol-header">
+    <div class="compagnie">
+      <img [src]="getLogoCompagnie()" alt="Logo compagnie" class="logo" />
+      <div class="nom-compagnie">{{ vol.compagnie }}</div>
+    </div>
+    <div class="matricule">{{ vol.matricule }}</div>
+  </div>  <div class="vol-details">
+    <div class="trajet">
+      <div class="aeroport">
+        <mat-icon class="icon">{{ getFlightIcon() }}</mat-icon>
+        {{ vol.aeroportDepart }}
+      </div>
+      <div class="fleche">
+        <mat-icon class="icon">arrow_right_alt</mat-icon>
+      </div>
+      <div class="aeroport">{{ vol.aeroportArrivee }}</div>
+    </div>    <div class="horaires">
+      <div class="depart">
+        <div class="label">Départ</div>
+      </div>
+      <div class="arrivee">
+        <div class="label">Arrivée</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,47 @@
-<!-- Affichage de la liste des passagers -->
+<div class="liste-passagers-container">
+  <h2>Liste des passagers</h2>
+
+  <div class="message-vide" *ngIf="!vol">
+    Aucun vol sélectionné. Veuillez sélectionner un vol dans la liste.
+  </div>
+  <div class="vol-info" *ngIf="vol">
+    <h3>Vol {{ vol.matricule }}</h3>
+    <div class="trajet">
+      <span>{{ vol.aeroportDepart }} → {{ vol.aeroportArrivee }}</span>
+    </div>
+  </div>
+
+  <div class="loading" *ngIf="loading">
+    Chargement des passagers...
+  </div>
+  <div class="passagers-list" *ngIf="vol && !loading && passagers.length > 0">    <div class="passagers-header">
+      <div class="passagers-count">
+        {{ passagers.length }} passager(s)
+      </div>
+      <div class="toggles">
+        <div class="toggle-item">
+          <mat-slide-toggle [(ngModel)]="editMode" color="primary">
+            Mode édition
+          </mat-slide-toggle>
+        </div>
+        <div class="toggle-item">
+          <mat-slide-toggle [(ngModel)]="showPhotos" color="accent">
+            Afficher photos
+          </mat-slide-toggle>
+        </div>
+      </div>
+    </div>
+    <app-passager 
+      *ngFor="let passager of passagers" 
+      [passager]="passager" 
+      [editMode]="editMode"
+      [showPhotos]="showPhotos">
+    </app-passager>
+  </div>
+
+  <div class="no-passagers" *ngIf="vol && !loading && passagers.length === 0">
+    Aucun passager pour ce vol.
+  </div>
+</div>
 
 

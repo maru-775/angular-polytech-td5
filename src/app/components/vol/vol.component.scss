@@ -1,0 +1,84 @@
+.vol-card {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  &.active {
+    border: 2px solid #3f51b5;
+    background-color: #e8eaf6;
+  }
+}
+
+.vol-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+
+  .compagnie {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      height: 30px;
+      width: auto;
+      margin-right: 10px;
+    }
+
+    .nom-compagnie {
+      font-weight: 500;
+    }
+  }
+
+  .matricule {
+    font-weight: bold;
+    color: #3f51b5;
+  }
+}
+
+.vol-details {
+  .trajet {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 16px;    .aeroport {
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      
+      .icon {
+        margin-right: 5px;
+      }
+    }
+
+    .fleche {
+      color: #757575;
+      display: flex;
+      align-items: center;
+    }
+  }
+  .horaires {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+
+    .depart, .arrivee {
+      flex: 1;
+      .label {
+        font-size: 14px;
+        color: #757575;
+        font-weight: 500;
+      }
+    }
+  }
+}

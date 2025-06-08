@@ -3,11 +3,11 @@
     <img src="../../../assets/Air France.png" alt="Logo AirFrance" />
   </div>
   <div class="menu">
-    <button mat-icon-button (click)="toDecollages()">
-      Decollages
+    <button mat-button (click)="toDecollages()">
+      <mat-icon>flight_takeoff</mat-icon> Decollages
     </button>
-    <button mat-icon-button>
-      Atterrissages
+    <button mat-button (click)="toAtterrissages()">
+      <mat-icon>flight_land</mat-icon> Atterrissages
     </button>
   </div>
 </mat-toolbar>

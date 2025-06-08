@@ -1,7 +1,7 @@
 <div class="filtres-container">
   <mat-form-field appearance="outline">
     <mat-label>Aéroport</mat-label>
-    <mat-select>
+    <mat-select [(ngModel)]="aeroportSelectionne">
       <mat-option *ngFor="let aeroport of aeroports" [value]="aeroport">{{ aeroport.ville + ' - ' + aeroport.nom }}</mat-option>
     </mat-select>
   </mat-form-field>
@@ -9,13 +9,13 @@
   <mat-form-field appearance="outline">
     <mat-label>Dates</mat-label>
     <mat-date-range-input [rangePicker]="picker">
-      <input matStartDate placeholder="Date de début">
-      <input matEndDate placeholder="Date de fin">
+      <input matStartDate placeholder="Date de début" [(ngModel)]="dateDebut">
+      <input matEndDate placeholder="Date de fin" [(ngModel)]="dateFin">
     </mat-date-range-input>
     <mat-hint>Entrez une période de 3 jours</mat-hint>
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-date-range-picker #picker></mat-date-range-picker>
   </mat-form-field>
 
-  <button class="apply-button" mat-flat-button>Appliquer</button>
+  <button class="apply-button" mat-flat-button (click)="appliquerFiltres()" [disabled]="!aeroportSelectionne || !dateDebut || !dateFin">Appliquer</button>
 </div>

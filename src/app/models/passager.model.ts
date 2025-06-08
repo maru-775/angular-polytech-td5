@@ -12,7 +12,8 @@ export interface IPassagerDto {
     large: string,
     medium: string,
     thumbnail: string
-  }
+  },
+  email: string
 }
 
 export enum ClasseVol {
@@ -26,6 +27,7 @@ export interface IPassager {
   image: string;
   classeVol: string;
   nbBagagesSoute: number;
+  email: string;
 }
 
 export class Passager implements IPassager {
@@ -33,12 +35,14 @@ export class Passager implements IPassager {
   image: string;
   classeVol: string;
   nbBagagesSoute: number;
+  email: string;
 
   constructor(dto: IPassagerDto) {
     this.nom = dto.name.first + ' ' + dto.name.last;
     this.image = dto.picture.medium;
     this.classeVol = getRandomClasseVol();
     this.nbBagagesSoute = getRandomNombreBagages();
+    this.email = dto.email;
   }
 }
 
